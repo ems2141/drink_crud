@@ -12,4 +12,8 @@ class DrinksController < ApplicationController
     @drink.save
     redirect_to drinks_path
   end
+
+  def show
+    @drink = Drink.find(params[:id])
+  end
 end

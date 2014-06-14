@@ -27,4 +27,13 @@ feature DrinkApp do
     expect(page).to have_no_content 'coffee'
     expect(page).to have_content 'tea'
   end
+
+  scenario 'user can delete a drink' do
+    Drink.create!(name: 'coffee')
+
+    visit '/drinks'
+    click_on 'coffee'
+    click_on 'Delete'
+    expect(page).to have_no_content 'coffee'
+  end
 end

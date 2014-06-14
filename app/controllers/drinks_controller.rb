@@ -25,6 +25,12 @@ class DrinksController < ApplicationController
     @drink = Drink.find(params[:id])
     @drink.name = params[:drink][:name]
     @drink.save
-    redirect_to drinks_path(@drink)
+    redirect_to drinks_path
+  end
+
+  def destroy
+    @drink = Drink.find(params[:id])
+    @drink.destroy
+    redirect_to drinks_path
   end
 end

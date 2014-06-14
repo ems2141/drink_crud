@@ -16,4 +16,15 @@ class DrinksController < ApplicationController
   def show
     @drink = Drink.find(params[:id])
   end
+
+  def edit
+    @drink = Drink.find(params[:id])
+  end
+
+  def update
+    @drink = Drink.find(params[:id])
+    @drink.name = params[:drink][:name]
+    @drink.save
+    redirect_to drinks_path(@drink)
+  end
 end

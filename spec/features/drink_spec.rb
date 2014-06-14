@@ -15,4 +15,16 @@ feature DrinkApp do
     click_on 'Hot Chocolate'
     expect(page).to have_content 'Name: Hot Chocolate'
   end
+
+  scenario 'user can edit and update a drink' do
+    Drink.create!(name: 'coffee')
+
+    visit '/drinks'
+    click_on 'coffee'
+    click_on 'Edit'
+    fill_in 'Name', with: 'tea'
+    click_on 'Update Drink'
+    expect(page).to have_no_content 'coffee'
+    expect(page).to have_content 'tea'
+  end
 end

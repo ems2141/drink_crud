@@ -2,6 +2,9 @@
 
 <%= link_to 'Add a drink', new_drink_path %>
 
+<% if current_user.present? %>
+<h1>Welcome <%= current_user.email %></h1>
+<% end %>
 
 <% @drinks.each do |drink| %>
   <p><%= link_to drink.name, drink_path(drink) %></p>

@@ -9,4 +9,9 @@ class SessionsController < ApplicationController
         redirect_to drinks_path
       end
   end
+
+  def destroy
+    log_user_out
+    redirect_to root_path
+  end
 end
